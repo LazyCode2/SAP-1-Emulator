@@ -18,4 +18,12 @@ export class InstructionRegister {
     		return this.value & 0x0F;
     	}
     }
+
+    getOpcode() {
+    	return (this.value >> 4) & 0x0F;
+	}
+
+	getOperand() {
+	    return this.value & 0x0F;
+	}
 }
