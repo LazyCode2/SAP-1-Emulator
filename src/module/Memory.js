@@ -38,12 +38,12 @@ export class RandomAccessMemory {
     }
 
     /**
-     * Writes to memory on clock pulse if the RAM load signal is active.
+     * Writes to memory if the RAM load signal is active.
      * @param {boolean} ramWrite - Write enable active
      * @param {number} currentAddress - Current target address from the MAR line
      * @param {number} busValue - The data byte to store from the W-Bus
      */
-    tick(rw, currentAddress, busValue) {
+    write(rw, currentAddress, busValue) {
     	if (rw) {
             this.memory[currentAddress] = busValue & 0xFF;
         }
