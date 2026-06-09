@@ -11,7 +11,7 @@ class Computer {
 
 	reset() {
       this.bus = 0x00;
-      his.currentTState = 1;
+      this.currentTState = 1;
   }
 
   step() {
