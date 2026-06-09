@@ -14,7 +14,7 @@ class Computer {
 
 	reset() {
       this.bus = 0x00;
-      this.currentTState = 1;
+      this.currentTstate = 1;
   }
 
   step() {
@@ -26,7 +26,7 @@ class Computer {
   getSnapshot() {
 	  return {
 	      bus: this.bus,
-	      tState: this.currentTState,
+	      tState: this.currentTstate,
 	      pc: this.pc.value
 	  };
   }

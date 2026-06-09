@@ -2,4 +2,6 @@ import { Computer } from "./computer.js";
 
 const computer = new Computer();
 
-console.log("Initial state:", computer.getSnapshot());
+const test = document.getElementById("test")
+
+test.value = computer.getSnapshot()
