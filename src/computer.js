@@ -19,7 +19,18 @@ export class Computer {
 
   step() {
   	this.bus = 0x00;
-  	this.pc.tick(true);
+  	
+  	switch(this.currentTstate) {
+  		case 1:
+  			this.pc.reset();
+  			this.pc.drive(true);
+  			this.mar.load(true);
+  		
+  		case 2:
+  			this.pc.tick(true);
+  		
+  		this.currentTstate++;
+  	}
   }
 
   // For testing
