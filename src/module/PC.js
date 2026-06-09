@@ -16,4 +16,10 @@ class ProgramCounter {
     		this.value = (this.value + 1) & 0x0F;
     	}	
     }
+
+    drive (lp) {
+    	if (lp == true) {
+    		return this.value 
+    	}
+    }
 }
