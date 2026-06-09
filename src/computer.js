@@ -2,7 +2,7 @@ import { ProgramCounter } from "./module/PC.js"
 import { MAR } from "./module/Memory.js"
 
 
-class Computer {
+export class Computer {
 	constructor() {
 		this.bus = 0x00;
 

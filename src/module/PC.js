@@ -1,4 +1,4 @@
-class ProgramCounter {
+export class ProgramCounter {
 	constructor () {
 		this.value = 0x0
 	}

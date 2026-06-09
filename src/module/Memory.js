@@ -1,4 +1,4 @@
-class MAR {
+export class MAR {
 	constructor () {
 		this.value = 0x0;
 	}

@@ -4,4 +4,10 @@ const computer = new Computer();
 
 const test = document.getElementById("test")
 
-test.value = computer.getSnapshot()
+computer.step();
+
+test.textContent = JSON.stringify(
+    computer.getSnapshot(),
+    null,
+    2
+);
