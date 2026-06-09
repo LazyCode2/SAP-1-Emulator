@@ -1,5 +1,5 @@
 import { ProgramCounter } from "./module/PC.js"
-import { MAR } from "./module/Memory.js"
+import { MAR , RandomAccessMemory } from "./module/Memory.js"
 
 
 export class Computer {
@@ -8,6 +8,7 @@ export class Computer {
 
 		this.pc = new ProgramCounter();
 		this.mar = new MAR();
+		this.memory = new RandomAccessMemory();
 
 		this.currentTstate = 1;
 	}
@@ -28,7 +29,10 @@ export class Computer {
   		
   		case 2:
   			this.pc.tick(true);
-  		
+			
+			case 3:
+				this.memory.drive(true,this.mar.value);
+
   		this.currentTstate++;
   	}
   }
@@ -38,7 +42,9 @@ export class Computer {
 	  return {
 	      bus: this.bus,
 	      tState: this.currentTstate,
-	      pc: this.pc.value
+	      pc: this.pc.value,
+	      mar: this.mar.value,
+	      memory: this.memory
 	  };
   }
 }
