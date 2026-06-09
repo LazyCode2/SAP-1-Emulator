@@ -14,3 +14,38 @@ export class MAR {
 		}
 	}
 }
+
+export class RandomAccessMemory {
+	constructor () {
+		this.memory = new Uint8Array(16);
+	}
+
+	reset () {
+		this.memory.fill(0x00);
+	}
+
+	/**
+     * Drives data onto the W-Bus if CE (Ram Enable) is active
+     * @param {boolean} ce - Count Enable / RAM Output Out to Bus
+     * @param {number} currentAddress - The raw address exposed by MAR
+     * @returns {number|null} 
+    */
+    drive(ce, currentAddress) {
+        if (ce) {
+            return this.memory[currentAddress];
+        }
+        return null;
+    }
+
+    /**
+     * Writes to memory on clock pulse if the RAM load signal is active.
+     * @param {boolean} ramWrite - Write enable active
+     * @param {number} currentAddress - Current target address from the MAR line
+     * @param {number} busValue - The data byte to store from the W-Bus
+     */
+    tick(rw, currentAddress, busValue) {
+    	if (rw) {
+            this.memory[currentAddress] = busValue & 0xFF;
+        }
+    }
+}
