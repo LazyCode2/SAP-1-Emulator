@@ -1,4 +1,4 @@
-import {ProgramCounter} from "./module/PC"
+import { ProgramCounter } from "./module/PC.js"
 
 class Computer {
 	constructor() {
