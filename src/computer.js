@@ -1,10 +1,13 @@
 import { ProgramCounter } from "./module/PC.js"
+import { MAR } from "./module/Memory.js"
+
 
 class Computer {
 	constructor() {
 		this.bus = 0x00;
 
 		this.pc = new ProgramCounter();
+		this.mar = new MAR();
 
 		this.currentTstate = 1;
 	}
