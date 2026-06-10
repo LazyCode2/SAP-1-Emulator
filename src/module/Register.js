@@ -27,3 +27,15 @@ export class InstructionRegister {
 	    return this.value & 0x0F;
 	}
 }
+
+export class RegisterAccumulator {
+		constructor () {
+			this.value = 0x00;
+		}
+
+		load (la,busValue) {
+		if (la) {
+			this.value = busValue
+		}
+	}
+}
