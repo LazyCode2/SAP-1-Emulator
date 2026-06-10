@@ -39,3 +39,15 @@ export class RegisterAccumulator {
 		}
 	}
 }
+
+export class RegisterBuffer {
+		constructor () {
+			this.value = 0x00;
+		}
+
+		load (lb,busValue) {
+		if (lb) {
+			this.value = busValue
+		}
+	}
+}
