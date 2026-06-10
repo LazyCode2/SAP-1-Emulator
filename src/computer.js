@@ -15,11 +15,6 @@ export class Computer {
 		this.a = new RegisterAccumulator();
 		this.b = new RegisterBuffer();
 
-		// TEST PROGRAM
-		this.memory.write(true,0,0b10110001);
-		this.memory.write(true,3,0b01000000);
-		this.memory.write(true,1,0x06);
-		this.memory.write(true,5,0x05);
 		this.currentTstate = 1;
 	}
 
@@ -104,6 +99,16 @@ export class Computer {
 	    }
   	}
   }
+
+	/**
+	 * Loads a value into memory at a specific address.
+	 * @param {number} data - Byte to store in memory
+	 * @param {number} address - Target memory address
+	 */
+	loadProgram(data, address) {
+		this.memory.write(true, address, data);
+	}
+
 
   // For testing
   getSnapshot() {

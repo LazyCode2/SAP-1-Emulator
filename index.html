@@ -1,12 +1,143 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>SAP 1 Emulator by LazyCode2</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAP-1 Emulator</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: monospace;
+            background: #0b0c10;
+            color: #e6e6e6;
+        }
+
+        .header {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            border-bottom: 1px solid #222;
+            background: #0f1115;
+        }
+
+        button {
+            background: #1a1d24;
+            color: #e6e6e6;
+            border: 1px solid #2a2f3a;
+            padding: 6px 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #222733;
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 45px);
+        }
+
+        .left {
+            width: 300px;
+            border-right: 1px solid #222;
+            padding: 10px;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            gap: 10px;
+        }
+
+        .panel {
+            background: #0f1115;
+            border: 1px solid #222;
+            padding: 10px;
+        }
+
+        .title {
+            margin-bottom: 8px;
+            opacity: 0.7;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid #222;
+            padding: 4px;
+            text-align: center;
+        }
+
+        input {
+            background: #111;
+            border: 1px solid #2a2f3a;
+            color: white;
+            width: 80px;
+            padding: 4px;
+        }
+
+        pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+    </style>
 </head>
+
 <body>
-	<pre id="test"></pre>
+
+    <!-- HEADER -->
+    <div class="header">
+        <button id="stepBtn">Step</button>
+        <button id="runBtn">Run</button>
+        <button id="resetBtn">Reset</button>
+    </div>
+
+    <div class="container">
+
+        <!-- LEFT: MEMORY EDITOR -->
+        <div class="left">
+            <div class="title">Manual Memory Write</div>
+
+            Address:<br>
+            <input id="addr" type="number" min="0" max="15"><br><br>
+
+            Value:<br>
+            <input id="val" type="number" min="0" max="255"><br><br>
+
+            <button id="writeBtn">Write</button>
+        </div>
+
+        <!-- MAIN -->
+        <div class="main">
+
+            <!-- REGISTERS -->
+            <div class="panel">
+                <div class="title">Registers</div>
+                <pre id="regs"></pre>
+            </div>
+
+            <!-- MEMORY -->
+            <div class="panel">
+                <div class="title">Memory (16 bytes)</div>
+                <table id="memTable"></table>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script type="module" src="src/app.js"></script>
 </body>
-<script type="module" src="src/app.js"></script>
 </html>
