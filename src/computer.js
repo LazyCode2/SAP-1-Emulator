@@ -44,7 +44,7 @@ export class Computer {
 				// Microstep
 				switch(this.ir.getOpcode()){
 					// LOAD
-					case 0x1:
+					case 0xB:
 						this.bus = this.ir.getOperand();
 			            this.mar.load(true, this.bus);
 			            break;
@@ -54,7 +54,7 @@ export class Computer {
 				// Microstep
 				switch(this.ir.getOpcode()){
 					// LOAD
-					case 0x1:
+					case 0xB:
 						this.bus = this.memory.drive(true, this.mar.value);
 			            this.a.load(true, this.bus);
 			            break;
